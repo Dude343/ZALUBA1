@@ -1,7 +1,6 @@
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    
     font-size: 15px;
     line-height: 1.6;
     color: #333;
@@ -225,6 +224,14 @@ hr{
     padding: 80px 0;
 } 
 
+.section--grat{
+    background-color: gray;
+}
+
+.section--clients{
+    background: #f5f5f5;
+}
+
 .section--devices{
     margin-bottom: 40px;
     background: url("../img/UNIQUEDESIGN_02.jpg") center no-repeat;
@@ -264,30 +271,33 @@ hr{
 }
 
 /* About */
-.about{
+.card{
     display: flex;
     justify-content: space-between;
 }
 
-.about__item{
+.card__item{
     width: 380px;
+}
+
+.card__inner{
     position: relative;
     background-color: aqua;
 }
 
-.about__item:hover .about__text{
+.card__item:hover .card__text{
     opacity: 1;
 }
 
-.about__item:hover .about__img img{
+.card__item:hover .card__img img{
     opacity: .1;
 }
 
-.about__item:hover .about__img{
+.card__item:hover .card__img{
     transform: translate3d(-10px, -10px, 0);
 }
 
-.about__text{
+.card__text{
     width: 100%;
     font-weight: 700;
     text-align: center;
@@ -303,12 +313,32 @@ hr{
     transform: translate3d(0, -50%, 0)
 }
 
-.about__img{
+.card__info{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.card__name{
+    text-transform: uppercase;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.card__prof{
+    color: #999;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 300;
+}
+
+
+.card__img{
     background: linear-gradient(to bottom, #f38181, #ffc888);
     transition: transform .2s linear;
 }
 
-.about__img img{
+.card__img img{
     display: block;
     transition: opacity .1s linear;
 }
@@ -413,12 +443,31 @@ hr{
 
 .accordion__item{
     border: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+}
+
+.accordion__item.active
+.accordion__content{
+    display: block;
+}
+
+.accordion__item.active
+.accordion__header{
+    border-bottom-color: #e5e5e5;
+}
+
+.accordion__item.active
+.accordion__header:after{
+    transform: translateY(-50%) rotate(-45deg);
+    margin-top: 5px;
 }
 
 .accordion__header{
     border-bottom: 1px solid #e5e5e5;
     padding: 15px 20px 15px 60px;
     position: relative;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
 }
 
 .accordion__header:after{
@@ -429,6 +478,10 @@ hr{
     border-top: 2px solid #ccc; 
     border-right: 2px solid #ccc;
     position: absolute;
+    top: 50%;
+    right: 20px;
+    z-index: 1;
+    transform: translateY(-50%) rotate(135deg);
     
 }
 
@@ -443,6 +496,7 @@ hr{
 
 .accordion__content{
     padding: 15px 20px;
+    display: none;
     font-size: 15px;
     color: #999;
     font-style: italic;
@@ -456,46 +510,241 @@ hr{
 }
 
 
+/* Reviews */
+
+.reviews{
+    padding: 0 110px;
+    position: relative;
+}
+
+.reviews__item{
+    padding-left: 245px;
+    position: relative;
+}
+
+.reviews__photo{
+    top: 0;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    
+}
+
+.reviews__text{
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 300;
+    color: #999;
+}
+
+
+.reviews__author{
+    font-size: 24px;
+    color: #333;
+    font-family: 'kaushan script', cursive;
+}
+
+.reviews__author:before{
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 60px;
+    height: 3px;    
+    background-color: #f38181;
+    margin-right: 1px;
+    
+}
+
+.reviews__btn{
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+    font-size: 0;
+    color: transparent;
+}
+
+.reviews__btn:after{
+    content: "";
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-top: 2px solid #ccc; 
+    border-left: 2px solid #ccc;
+    transform: rotate(0deg);
+}
+
+.reviews__btn--prev{
+    left: 0;
+    transform: rotate(-45deg);
+}
+
+.reviews__btn--next{
+    right: 0;
+    transform: rotate(135deg);
+}
+
+/* Social */
+
+.social{
+    display: flex;
+    justify-content: center;
+}
+
+
+.social__item{
+    background-color: yellow;
+    border-right: 1px solid #f38181;
+    text-decoration: none;
+    color: #f38181;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    padding: 12px 10px;
+    line-height: 1;
+    transition: background .1s linear, color .1s linear;
+}
+
+.social__item:hover{
+    background-color: #f38181;
+    color: #fff;
+} 
+
+.social__item:last-child{
+    border-right: 0;
+}
 
 
 
+/* Logos */
+
+.logos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 
+/* Works */
+
+.works{
+    display: flex;
+}
+
+.works__col{
+    flex: 1 1 0;
+}
+
+.works__item{
+    position: relative;
+    background: linear-gradient(to bottom, #f38181, #ffc888);
+    
+}
+
+.works__item:hover .works__image{
+    opacity: .1;
+}
+
+.works__item:hover .works__info{
+    opacity: 1; 
+}
 
 
+.works__image{
+    transition: opacity .2s linear;
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.works__info{
+    text-align: center;
+    color: #fff;
+    padding: 0 15px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translate3d(0, -50%, 0);     
+    width: 100%;
+    opacity: 0;
+    transition: opacity .2s linear;
+}
+
+.works__title{
+    margin-bottom: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.works__text{
+    font-size: 15px;
+    color: aliceblue;
+    font-weight: 300;
+    font-style: italic;
+    
+}
 
 
+/* Clients */
+
+.clients{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 70px;
+}
 
 
+.clients__item{
+    width: 50%;
+    padding: 0 45px 0 175px;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.clients__photo{
+    position: absolute;
+    top: 0;
+    left: 40px;
+    z-index: 1;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+}
+
+.clients__name{
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+    text-transform: uppercase;
+}
 
 
+.clients__prof{
+    font-size: 15px;
+    color: #333;
+    font-style: italic;    
+    font-weight: 300;
+    
+}
 
 
+.clients__text{
+    font-size: 15px;
+    color: #999;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.clients__text:before{
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 15px 0;
+    background-color: #f38181;
+}
 
 
 
