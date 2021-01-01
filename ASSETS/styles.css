@@ -703,6 +703,7 @@ hr{
     padding: 0 45px 0 175px;
     position: relative;
     margin-bottom: 60px;
+    box-sizing: border-box;
 }
 
 .clients__photo{
